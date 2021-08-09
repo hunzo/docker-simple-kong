@@ -1,39 +1,35 @@
-version: '3.7'
-services: 
+version: "3.7"
+services:
     kong-db:
-        image: postgres:9.6-alpine 
+        image: postgres:9.6-alpine
         container_name: kong-db
-        env_file: 
+        env_file:
             - kong-db.env
 
     kong:
-        image: kong:${KONG_VERSION-2.5}
+        image: "kong:${TAG-latest}"
         container_name: kong
-        env_file: 
-            - kong.env
-        depends_on: 
+        env_file:
+            - ./kong.env
+        depends_on:
             - kong-db
-        ports: 
+        ports:
             - 127.0.0.1:8001:8001
             - 8000:8000
             - 8443:8443
-    
+
     konga-init:
         image: pantsel/konga
         command: "-c prepare -a postgres -u postgresql://kong:kong@kong-db:5432/konga_db"
-        depends_on: 
+        depends_on:
             - kong-db
-        
 
     konga:
         image: pantsel/konga
         container_name: konga
-        depends_on: 
+        depends_on:
             - kong-db
-        env_file: 
+        env_file:
             - konga.env
-        ports: 
+        ports:
             - 1337:1337
-
-
-        

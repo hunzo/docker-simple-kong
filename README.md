@@ -1,28 +1,38 @@
-## start kong database
+# Kong installation
+- start kong database
 ```
 docker-compose up -d kong-db
 ```
-## kong database migrations
+- kong database migrations `--v(verbose), --vv(debug)`
 ```
 docker-compose run --rm kong kong migrations bootstrap --vv
 ```
-## start kong
+- start kong
 ```
 docker-compose up -d kong
 ```
-## konga database migration
+
+# Konga installation
+- konga database migration
 ```
 docker-compose run konga-init
 ```
-## start konga
+- start konga
 ```
 docker-compose up -d konga
 ```
-### upgrade kong
+
+# Upgrade Kong Version
+> chage version in .env file ex. TAG=version_number
+- upgrade kong  `--v(verbose), --vv(debug)`
 ```
 docker-compose run --rm kong kong migrations up --vv
 ```
-### confirm upgrade 
+- confirm upgrade 
 ```
 docker-compose run --rm kong kong migrations finish --vv
+```
+- start kong
+```
+docker-compose up -d kong
 ```
