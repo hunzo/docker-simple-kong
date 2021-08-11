@@ -31,8 +31,9 @@ docker-compose run konga-init
 # Start Konga
 echo "Start Konga"
 echo "-------------------------"
-docker-compose up -d kong
+docker-compose up -d konga
 
 echo "Installed Successfully"
 echo "kong admin: http://localhost:8001"
 echo "kong service: http://localhost:8000"
+echo "konga: http://localhost:1337"
