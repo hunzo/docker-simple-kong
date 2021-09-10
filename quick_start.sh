@@ -35,5 +35,5 @@ docker-compose up -d konga
 
 echo "Installed Successfully"
 echo "kong admin: http://localhost:8001"
-echo "kong service: http://localhost:8000"
+echo "kong service: http://localhost:80"
 echo "konga: http://localhost:1337"

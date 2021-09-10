@@ -6,7 +6,7 @@ services:
         env_file:
             - kong-db.env
         healthcheck:
-            test: ["CMD-SHELL", "pg_isready -U postgres"]
+            test: ["CMD-SHELL", "pg_isready -U kong"]
             interval: 5s
             timeout: 2s
             retries: 15
@@ -21,8 +21,8 @@ services:
         ports:
             - 127.0.0.1:8001:8001
             - 127.0.0.1:8444:8444
-            - 8000:8000
-            - 8443:8443
+            - 80:8000
+            - 443:8443
         healthcheck:
             test: ["CMD", "kong", "health"]
             interval: 5s
