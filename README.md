@@ -1,4 +1,9 @@
 # Kong installation
+- create docker network
+```shell
+docker network rm proxy-network
+docker network create proxy-network
+```
 - start kong database
 ```shell
 docker-compose up -d kong-db
@@ -28,7 +33,7 @@ docker-compose up -d konga
 ```shell
 docker-compose run --rm kong kong migrations up --vv
 ```
-- confirm upgrade 
+- confirm upgrade
 ```shell
 docker-compose run --rm kong kong migrations finish --vv
 ```
@@ -36,7 +41,7 @@ docker-compose run --rm kong kong migrations finish --vv
 ```shell
 docker-compose up -d kong
 ```
-# Quick Start 
+# Quick Start
 ```shell
 ./quick_start.sh
 ```

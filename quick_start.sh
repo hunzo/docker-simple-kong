@@ -1,6 +1,8 @@
 #!/bin/bash
+docker network rm proxy-network
+docker network create proxy-network
 
-# Start kong database 
+# Start kong database
 docker-compose up -d kong-db
 
 # Check database start finished
