@@ -45,3 +45,6 @@ docker-compose up -d kong
 ```shell
 ./quick_start.sh
 ```
+```shell
+./start.sh
+```
