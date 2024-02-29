@@ -61,21 +61,17 @@ docker-compose run --rm kong kong migrations finish --vv
 docker-compose up -d kong
 ```
 
-# Quick Start
-
-```shell
-./quick_start.sh
-```
-
-```shell
-./start.sh
-```
-
 # migrate kong
 
 ## export database
 
 ### create .pgpass for kong database password
+
+```
+kong
+```
+
+- create export script
 
 ```bash
 #!/bin/bash
@@ -101,4 +97,14 @@ cat dump_kong_kong:3.0.0-alpine_2024-02-29.sql | docker exec -i kong-db psql -U 
 ```bash
 docker compose exec -t kong-db psql -U kong -c 'CREATE DATABASE konga_db;'
 cat dump_konga_db_2024-02-29.sql | docker exec -i kong-db psql -U kong -d konga_db
+```
+
+# Quick Start
+
+```shell
+./quick_start.sh
+```
+
+```shell
+./start.sh
 ```
