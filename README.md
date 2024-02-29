@@ -76,9 +76,9 @@ kong
 ```bash
 #!/bin/bash
 
-export kongdb=kong
-export kongadb=konga_db
-export kong_version=kong:3.0.0-alpine
+kongdb=kong
+kongadb=konga_db
+kong_version=kong:3.0.0-alpine
 
 docker compose exec -t kong-db pg_dump -c --username=kong --dbname=$kongdb > dump_"$kongdb"_"$kong_version"_`date +%Y-%m-%d`.sql
 docker compose exec -t kong-db pg_dump -c --username=kong --dbname=$kongadb > dump_"$kongadb"_`date +%Y-%m-%d`.sql
