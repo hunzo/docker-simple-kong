@@ -63,7 +63,7 @@ docker-compose up -d kong
 
 # Migrate Kong
 
-## export database
+## Export database
 
 ### create .pgpass for kong database password
 
@@ -84,7 +84,7 @@ docker compose exec -t kong-db pg_dump -c --username=kong --dbname=$kongdb > dum
 docker compose exec -t kong-db pg_dump -c --username=kong --dbname=$kongadb > dump_"$kongadb"_`date +%Y-%m-%d`.sql
 ```
 
-## import database:
+## Import database
 
 ### import kong db
 
