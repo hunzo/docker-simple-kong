@@ -61,7 +61,7 @@ docker-compose run --rm kong kong migrations finish --vv
 docker-compose up -d kong
 ```
 
-# migrate kong
+# Migrate Kong
 
 ## export database
 
