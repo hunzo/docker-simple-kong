@@ -44,4 +44,3 @@ services:
       - proxy-network
 networks:
   proxy-network:
-    external: true
